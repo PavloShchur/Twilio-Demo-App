@@ -1,0 +1,11 @@
+{
+  "name": "twilio-demo-app",
+  "description": "Twilio Demo App",
+  "keywords": [
+    "app-cloud"
+  ],
+  "repository": "https://github.com/PavloShchur/twilio-demo-app",
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
