@@ -1,0 +1,18 @@
+#main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+i.fa {
+    display: inline-block;
+    border-radius: 50px;
+    box-shadow: 0 0 2px #888;
+    font-size: 36px;
+    width: 1.6em;
+    text-align: center;
+    line-height: 1.6em;
+}
+
+.display-none {
+    display: none;
+}

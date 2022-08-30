@@ -2,8 +2,32 @@
 <html dir="ltr" lang="en">
     <head>
         <title>Twilio Demo App</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="index.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
+        <div id="main">
+            <div>
+                <h1>Navigation</h1>
+
+                <div id="turnOnCamera" onclick="turnOnVideo()">
+                    <i class="fa fa-play" title="Turn on camera."></i>
+                </div>
+                <div id="turnOffCamera" class="display-none" onclick="turnOffVideo()">
+                    <i class="fa fa-stop" title="Turn off camera."></i>
+                </div>
+            </div>
+            <div>
+                <h1>Content</h1>
+            </div>
+            <div>
+                <h1>Footer</h1>
+            </div>
+        </div>
+
         <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
