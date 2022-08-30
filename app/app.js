@@ -2,7 +2,7 @@ import {ViewChild} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
 import {App, Platform} from 'ionic-angular';
 
-import {WelcomePage} from './pages/welcome/welcome';
+import {IndexPage} from './pages/index';
 import {PropertyListPage} from './pages/property-list/property-list';
 import {BrokerListPage} from './pages/broker-list/broker-list';
 import {FavoriteListPage} from './pages/favorite-list/favorite-list';
@@ -30,13 +30,13 @@ class MyApp {
         this.platform = platform;
 
         this.pages = [
-            {title: 'Welcome', component: WelcomePage, icon: "bookmark"},
+            {title: 'Welcome', component: IndexPage, icon: "bookmark"},
             {title: 'Properties', component: PropertyListPage, icon: "home"},
             {title: 'Brokers', component: BrokerListPage, icon: "people"},
             {title: 'Favorites', component: FavoriteListPage, icon: "star"}
         ];
 
-        this.rootPage = WelcomePage;
+        this.rootPage = IndexPage;
         this.initializeApp();
     }
 
