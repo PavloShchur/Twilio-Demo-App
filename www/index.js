@@ -2,12 +2,12 @@
 
     console.log('init()');
 
-    const connect : Twilio.Video.connect;
+    const connect = Twilio.Video.connect;
     console.log('init(), connect:', connect);
 
-    const createLocalAudioTrack : Twilio.Video.createLocalAudioTrack;
-    const createLocalVideoTrack : Twilio.Video.createLocalVideoTrack;
-    const localDataTrack : Twilio.Video.LocalDataTrack;
+    const createLocalAudioTrack = Twilio.Video.createLocalAudioTrack;
+    const createLocalVideoTrack = Twilio.Video.createLocalVideoTrack;
+    const localDataTrack = Twilio.Video.LocalDataTrack;
 })();
 
 function turnOnVideo() {
