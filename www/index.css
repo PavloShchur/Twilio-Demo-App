@@ -8,6 +8,15 @@
     text-align: center;
 }
 
+#navigation {
+    display: flex
+}
+
+#navigation > div {
+    flex: 1;
+    margin: 5px;
+}
+
 i.fa {
     display: inline-block;
     border-radius: 50px;

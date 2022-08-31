@@ -9,19 +9,25 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <script src="//sdk.twilio.com/js/video/releases/2.24.0/twilio-video.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
     </head>
     <body>
         <div id="main">
-            <div>
-                <div id="turnOnCamera" onclick="turnOnVideo()">
+            <div id="navigation">
+                <div id="startScreenSharing" onclick="startScreenSharing()" style="text-align: right">
+                    <i class="fa fa-youtube-play" title="Start screen sharing."></i>
+                </div>
+                <div id="turnOnCamera" onclick="turnOnVideo()" style="text-align: left">
                     <i class="fa fa-play" title="Turn on camera."></i>
                 </div>
-                <div id="turnOffCamera" class="display-none" onclick="turnOffVideo()">
+                <div id="turnOffCamera" class="display-none" onclick="turnOffVideo()" style="text-align: left">
                     <i class="fa fa-stop" title="Turn off camera."></i>
                 </div>
             </div>
             <div>
                 <h1>Content</h1>
+                <canvas id="sharingScreen"></canvas>
             </div>
             <div>
                 <h1>Footer</h1>
