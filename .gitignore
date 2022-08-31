@@ -1,0 +1,4 @@
+# temporary folder for all Intellij IDEs
+.idea
+.apex
+.sdk
