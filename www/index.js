@@ -84,10 +84,16 @@ function startScreenSharing() {
     const MediaStream = _canvas.captureStream();
 
     const videoTrack = MediaStream.getTracks()[0];
+    console.log('Screen sharing video track:', videoTrack);
 
     const screenTrack = new Twilio.Video.LocalVideoTrack(videoTrack, {name: 'Sharing'});
+    console.log('Twilio screen sharing video track:', screenTrack);
 
-    twilioRoom.localParticipant.publishTrack(screenTrack);
+    twilioRoom.localParticipant.publishTrack(screenTrack).then(function(publication) {
+        console.log('The LocalTrack "' + publication.trackName + '" was successfully published.');
+    }).catch(error => {
+        console.log('Screen sharing track error:', error);
+    });
 }
 
 function turnOnVideo() {
@@ -96,7 +102,11 @@ function turnOnVideo() {
         name : 'Camera'
     }).then(localCameraTrack => {
 
-        twilioRoom.localParticipant.publishTrack(localCameraTrack, {priority : 'low'});
+        twilioRoom.localParticipant.publishTrack(localCameraTrack, {priority : 'low'}).then(function(publication) {
+            console.log('The LocalTrack "' + publication.trackName + '" was successfully published.');
+        }).catch(error => {
+            console.log('Video track error:', error);
+        });;
 
     }).catch((error) => {
         console.log('@@@ turnOnVideo(), error:', error);
