@@ -1,11 +1,14 @@
 let createLocalVideoTrack;
 let twilioRoom;
 
-(function () {
-
+function connect() {
     const connect = Twilio.Video.connect;
 
-    connect(getAccessToken(), {
+    const sid = document.getElementById('SID').value;
+    const apiKey = document.getElementById('APIKey').value;
+    const apiSecret = document.getElementById('APISecret').value;
+
+    connect(getAccessToken(sid, apiKey, apiSecret), {
         name : 'roomName',
         tracks : [],
         automaticSubscription : true,
@@ -23,16 +26,21 @@ let twilioRoom;
         networkQuality : {local : 1, remote : 1}
     }).then(room => {
 
+        console.log('Twilio room:', room);
+
         twilioRoom = room;
+
+        document.getElementById('credentials').classList.add('display-none');
+        document.getElementById('navigation').style.display = 'flex';
 
     }).catch(error => {
         console.log('init(), error:', error);
     });
 
     createLocalVideoTrack = Twilio.Video.createLocalVideoTrack;
-})();
+}
 
-function getAccessToken() {
+function getAccessToken(sid, apiKey, apiSecret) {
     const header = {
         "typ": "JWT",
         "alg": "HS256",
@@ -43,8 +51,8 @@ function getAccessToken() {
     const exp = iat + 60 * 60 * 2;
 
     const payload = {
-        "iss": "SK0c7ea848631bc5305294f53cfb862780",
-        "sub": "AC03622ae23ef739369b393a24d371b165",
+        "sub": sid,
+        "iss": apiKey,
         "iat": iat,
         "nbf": iat,
         "exp": exp,
@@ -56,7 +64,7 @@ function getAccessToken() {
         }
     }
 
-    const secret = "MN72eDuuTIZsdhKUYCDqRtXCx3oR3z6M";
+    const secret = apiSecret;
 
     const encodedHeader = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(header)));
     const encodedData = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(payload)));

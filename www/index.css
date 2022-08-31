@@ -9,7 +9,7 @@
 }
 
 #navigation {
-    display: flex
+    display: none
 }
 
 #navigation > div {

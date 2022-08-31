@@ -15,7 +15,7 @@
     </head>
     <body>
         <div id="main">
-            <div id="navigation">
+            <div id="navigation" class="display-none">
                 <div id="startScreenSharing" onclick="startScreenSharing()" style="text-align: right">
                     <i class="fa fa-youtube-play" title="Start screen sharing."></i>
                 </div>
@@ -27,11 +27,23 @@
                 </div>
             </div>
             <div>
-                <h1>Content</h1>
                 <canvas id="sharingScreen"></canvas>
-            </div>
-            <div>
-                <h1>Footer</h1>
+
+                <div id="credentials">
+
+                    <h1>Credentials</h1>
+
+                    <label for="SID">SID of the Twilio Account:</label><br>
+                    <input type="text" id="SID" name="APIKey"><br>
+
+                    <label for="APIKey">API Key:</label><br>
+                    <input type="text" id="APIKey" name="APIKey"><br>
+
+                    <label for="APISecret">API Secret:</label><br>
+                    <input type="text" id="APISecret" name="APISecret"><br><br>
+
+                    <input type="submit" value="Submit" onclick="connect()">
+                </div>
             </div>
         </div>
 
