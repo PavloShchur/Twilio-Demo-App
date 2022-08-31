@@ -3,6 +3,11 @@
     flex-wrap: wrap;
 }
 
+#main > div {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
 i.fa {
     display: inline-block;
     border-radius: 50px;
