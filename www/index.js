@@ -26,6 +26,7 @@ function connect() {
         networkQuality : {local : 1, remote : 1}
     }).then(room => {
 
+        console.log('Twilio JS Library Version:', Twilio.Video.version);
         console.log('Twilio room:', room);
 
         twilioRoom = room;
