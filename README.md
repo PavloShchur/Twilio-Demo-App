@@ -3,7 +3,7 @@ Twilio Demo App
 
 This application is designed for Twilio team to reproduce video related issues. It will run on Heroku.
 
-Before using the you need to specify SID of the Twilio Account, API Key and API Secret.
+Before using the app you need to specify SID of the Twilio Account, API Key and API Secret.
 
 Please follow these steps to reproduce the issue describe here https://github.com/twilio/twilio-video.js/issues/1857:
 1. Click "Start screen sharing." button;
