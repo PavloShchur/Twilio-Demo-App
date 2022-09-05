@@ -4,11 +4,9 @@ let twilioRoom;
 function connect() {
     const connect = Twilio.Video.connect;
 
-    const sid = document.getElementById('SID').value;
-    const apiKey = document.getElementById('APIKey').value;
-    const apiSecret = document.getElementById('APISecret').value;
+    const accessToken = document.getElementById('accessToken').value;
 
-    connect(getAccessToken(sid, apiKey, apiSecret), {
+    connect(accessToken, {
         name : 'roomName',
         tracks : [],
         automaticSubscription : true,
@@ -41,51 +39,6 @@ function connect() {
     createLocalVideoTrack = Twilio.Video.createLocalVideoTrack;
 }
 
-function getAccessToken(sid, apiKey, apiSecret) {
-    const header = {
-        "typ": "JWT",
-        "alg": "HS256",
-        "cty": "twilio-fpa;v=1"
-    };
-
-    const iat = Math.round(new Date().getTime() / 1000);
-    const exp = iat + 60 * 60 * 2;
-
-    const payload = {
-        "sub": sid,
-        "iss": apiKey,
-        "iat": iat,
-        "nbf": iat,
-        "exp": exp,
-        "grants": {
-            "identity": "identity",
-            "video": {
-                "room" : "test"
-            }
-        }
-    }
-
-    const secret = apiSecret;
-
-    const encodedHeader = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(header)));
-    const encodedData = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(payload)));
-
-    const signature = base64url(CryptoJS.HmacSHA256(encodedHeader + "." + encodedData, secret));
-
-    return encodedHeader + '.' + encodedData + '.' + signature;
-}
-
-function base64url(source) {
-
-    let encodedSource = CryptoJS.enc.Base64.stringify(source);
-
-    encodedSource = encodedSource.replace(/=+$/, '');
-    encodedSource = encodedSource.replace(/\+/g, '-');
-    encodedSource = encodedSource.replace(/\//g, '_');
-
-    return encodedSource;
-}
-
 function startScreenSharing() {
 
     const _canvas = document.getElementById('sharingScreen');
@@ -115,7 +68,7 @@ function turnOnVideo() {
             console.log('The LocalTrack "' + publication.trackName + '" was successfully published.');
         }).catch(error => {
             console.log('Video track error:', error);
-        });;
+        });
 
     }).catch((error) => {
         console.log('@@@ turnOnVideo(), error:', error);

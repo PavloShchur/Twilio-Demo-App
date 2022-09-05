@@ -9,9 +9,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <script src="https://sdk.twilio.com/js/video/releases/2.24.0/twilio-video.min.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
     </head>
     <body>
         <div id="main">
@@ -33,14 +30,8 @@
 
                     <h1>Credentials</h1>
 
-                    <label for="SID">SID of the Twilio Account:</label><br>
-                    <input type="text" id="SID" name="APIKey"><br>
-
-                    <label for="APIKey">API Key:</label><br>
-                    <input type="text" id="APIKey" name="APIKey"><br>
-
-                    <label for="APISecret">API Secret:</label><br>
-                    <input type="text" id="APISecret" name="APISecret"><br><br>
+                    <label for="accessToken">Access Token:</label><br>
+                    <input type="text" id="accessToken" name="Access Token"><br><br>
 
                     <input type="submit" value="Submit" onclick="connect()">
                 </div>
