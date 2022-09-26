@@ -53,8 +53,18 @@ function startScreenSharing() {
 
     twilioRoom.localParticipant.publishTrack(screenTrack).then(function(publication) {
         console.log('The LocalTrack "' + publication.trackName + '" was successfully published.');
+        shimTrackCloneSettings(screenTrack);
     }).catch(error => {
         console.log('Screen sharing track error:', error);
+    });
+}
+
+function shimTrackCloneSettings(localVideoTrack) {
+    localVideoTrack._trackSender._clones.forEach(function(trackSender) {
+        const track = trackSender.track;
+        const initialSettings = track.getSettings();
+        const actualGetSettings = track.getSettings.bind(track);
+        track.getSettings = function() { return Object.assign({}, initialSettings, actualGetSettings()); };
     });
 }
 
