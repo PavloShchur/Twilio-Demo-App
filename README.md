@@ -12,6 +12,9 @@ Please follow these steps to reproduce the issue describe here https://github.co
 
 If this link (https://twilio-demo-app.herokuapp.com/) does not work use the button below to deploy th app to your Heroku instance.
 
+https://twilio-demo-app.herokuapp.com: https://github.com/PavloShchur/twilio-demo-app/commit/e29c9ef73323b21e32b1156ed4e52d078984b4b0) is not taken into account;
+https://twilio-demo-app-workardound.herokuapp.com: https://github.com/PavloShchur/twilio-demo-app/commit/e29c9ef73323b21e32b1156ed4e52d078984b4b0) is taken into account;
+
 <a href="https://heroku.com/deploy">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
